@@ -1,0 +1,9 @@
+<!DOCTYPE poznamky
+[
+<!ELEMENT poznamky (kategoria,sekcia,nazov,obsah,info)>
+<!ELEMENT kategoria (#PCDATA)>
+<!ELEMENT sekcia (#PCDATA)>
+<!ELEMENT nazov (#PCDATA)>
+<!ELEMENT obsah (#PCDATA)>
+<!ELEMENT info (#PCDATA)>
+]>

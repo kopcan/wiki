@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<poznamky>
+
+    <zaznam>
+		<id>5</id>
+		<kategoria>PHP</kategoria>
+		<sekcia>Objektovo orientované programovanie (OOP) v PHP</sekcia>
+		<nazov>Viditelnosť vlastností a metód</nazov>
+                <obsah>
+		<![CDATA[
+		<p>
+		Pod pojmom viditelnosť metód a vlastností rozumieme možnosť pristupovať k ním z vonku (mimo samotnú triedu) tzn. "volanie" jednotlivých vlastností alebo metód objektu a meniť ich hodnotu.
+                </p>
+                <p>
+                Modifikátory prítupu su: 
+			<ul>
+				<li>public - metóda alebo vlastnoť sa dá na inštancii zavolať</li>
+				<li>private - </li>
+                                <li>protected - </li>
+			</ul>
+		</p>
+                <h3>Príklad</h3>
+                <pre>
+		<code>
+		class User{
+                    private $username;
+                    private $password;
+
+                    public function __construct($username, $password){
+                            $this->username = $username;
+                            $this->password = $password;
+                    }
+                }
+
+                $User = new User('brad', '1234');
+		</code>
+		</pre>
+		]]>
+		</obsah>
+		<info/>
+	</zaznam>
+        
+    	<zaznam>
+		<id>4</id>
+		<kategoria>PHP</kategoria>
+		<sekcia>Objektovo orientované programovanie (OOP) v PHP</sekcia>
+		<nazov>Magické metódy</nazov>
+                <obsah>
+		<![CDATA[
+		<p>
+		PHP nám v triede umožňuje definova´t niekoľko magických metód- Magických preto, že ich nevoláme my sami (aj keď samozrejme je to možne) ale spúšťajú sa samé, na základe nejakej udalosti. <strong>Všetky magické metódy začínajú na dve podržítka</strong>.
+                Magické metódy sú napríklad: 
+			<ul>
+				<li>Konštruktor ( __constructor )</li>
+				<li>Deštruktor ( __destructor )</li>
+                                <li>ToString ( __ToString )</li>
+                                <li>Set ( __set )</li>
+                                <li>Get ( __get )</li>
+                                <li>Isset ( __isset )</li>
+			</ul>
+		</p>
+                <h3>Konštruktor</h3>
+                <p>
+                Konstruktor je metóda, ktorá sa automaticky spustí pri vytvorení inštancie. Slúži k nastaveniu vnútorného stavu objektu tak, aby bol pripravený k použitiu. Pokial má naša trieda konštruktor, nedá sa jej inštanicia vytvoriť inak, než určuje konštruktor.<br>
+                Konštruktor je metóda s menom __construct() a s lubovolným počtom parametrov.
+                </p>
+                <pre>
+		<code>
+                public function __construct($jmeno, $prijmeni, $vek)
+                {
+                        $this->jmeno = $jmeno;
+                        $this->prijmeni = $prijmeni;
+                        $this->vek = $vek;
+                }
+		</code>
+		</pre>
+		]]>
+		</obsah>
+		<info/>
+	</zaznam>
+	
+	<zaznam>
+		<id>3</id>
+		<kategoria>PHP</kategoria>
+		<sekcia>Objektovo orientované programovanie (OOP) v PHP</sekcia>
+		<nazov>Objek, atribúty, metódy, triedy</nazov>
+		<obsah><![CDATA[
+		<p>
+		 Základnou jednotkou OOP je <strong>objekt</strong>, ktorý predstavuje nejaký objekt z reálneho sveta (napr. objekt <em>človek</em> alebo <em>databáza</em>).<br>
+		 Objekt má svoje <strong>atribúty</strong> a <strong>metódy</strong>.
+		</p>
+                <h3>Triedy</h3>
+		<p>
+		Pre vytvorenie objektu potrebujeme najskor tzv. triedu. Trieda je vzor podľa ktorého sa objekt vytvára - definuje jeho atributy(premenne) a metody(funkcie).
+		Objekt, ktorý sa vytvorí podľa triedy, sa nazýva inštancia. Trieda teda predstavuje akúsi šablónu, podľa ktorej sa vytváraju jednotlive inštancie. Majme napríklad triedu <em>človek</em>
+		na základe ktorej si vytvoríme inštancie <em>$peter</em> a <em>$marek</em>. Obe inštancie su vytvorené na základe triedy <em>človek</em> a majú teda spoločne atribúty (napr. <em>$meno</em>
+		alebo <em>$vek</em>) a metódy (napr. <em>povysavaj()</em> alebo <em>pozdrav()</em>). Líšia sa ale konkretnymi hodnotami atribútov - prvá inštancia ma v atribúte <em>$meno</em> hodnotu "peter" a v <em>$vek</em> 22, druhá "Marek" a 45.
+		</p>
+                <pre>
+		<code>
+		class Clovek {
+		
+		}
+		</code>
+		</pre>
+		<h3>Atribúty</h3>
+		<p>
+		Atribúty predstavujú vlastnosti určitého objektu (napr. u človeka <em>$meno</em> alebo <em>$vek</em>, u databázy <em>$heslo</em> atď.)
+		</p>
+		<h3>Metódy</h3>
+		<p>
+		Metódy su schopnosti (funkcie), ktoré objekt má a ktoré vie používať. Človek by mohol mať napríklad metódu <em>povysavaj()</em> alebo <em>pozdrav()</em>. Metódy možu mať parametre a možu vracať nejakú hodnotu. Od funkcie v procedurálnom programovaní sa líši tým, že metóda patrí objektu a funkcia nepatrí nikam.
+		</p>
+                <pre>
+		<code>
+		class Clovek {
+			public function pozdrav(){
+				echo('Ahoj');
+			}
+		}
+		</code>
+		</pre>
+                <h3>Objekt</h3>
+                <p>Objekt vytvoríme pomocou kľúčového slova <strong>"new"</strong> a názvu triedy.Vytvorený objekt si uložíme do premennej aby sme s ním mohli ďalej pohodlne pracovať. Metodu objektu potom zavolame pomocou názvu objektu, šípky a názvu metódy.</p>
+                <pre>
+		<code>
+		$karel = new Clovek();
+		$karel->pozdrav();
+		</code>
+		</pre>   
+		]]>
+		</obsah>
+		<info>
+		<![CDATA[
+		<p>
+		Samotné OOP pojem objekt vlastne ani nepozná, rozlišujeme iba triedu a inštanciu. Keď je niekde uvedený pojem objekt, myslí sa tým inštancia (objekt = inštancia).
+		</p>
+		]]>
+		</info>
+	</zaznam>
+	
+	<zaznam>
+		<id>2</id>
+		<kategoria>XML</kategoria>
+		<sekcia>DTD, Definícia typu dokumentu</sekcia>
+		<nazov>DTD, Definícia typu dokumentu</nazov>
+		<obsah>
+		<![CDATA[
+		<p>
+		Definicia typu dokumentu (DTD) určuje, ktoré elementy a atributy možeme v dokumente použit.
+		Načo to je dobre?
+			<ul>
+				<li>pomocou parseru možeme kontrolovať, či má náš dokumentu štruktúru odpovedajúcu danému DTD</li>
+				<li>k dispozicii budeme mať množstvo užitočných nástraojov určených pre konkrétne DTD</li>
+			</ul>
+		</p>
+		]]>
+		</obsah>
+		<info/>
+	</zaznam>
+	
+	<zaznam>
+		<id>1</id>
+		<kategoria>XML</kategoria>
+		<sekcia>DTD, Definícia typu dokumentu</sekcia>
+		<nazov>Kontzrola dokumentu podľa DTD</nazov>
+		<obsah>
+		<![CDATA[
+		<p>
+		Základným nástrojom, ktorý sa pri práci s XML používa, je parser. Parser je program, ktorý kontroluje, či dokument správne štruktúrovaný (well-fortmed). Lepšie parsery zároveň kontrolujú, či dokument zodpovedá danému DTD (samozrejme len pokial DTD pre dokumt existuje).
+		Špecifikácia XML definuje niekoľko úrovní správnosti dokumentu:
+			<ul>
+				<li>pokial dokument splňuje základné syntaktické pravidlá, ako párové tagy apod., je SPRÁVNE ŠTRUKTÚROVANÝ</li>
+				<li>pokial dokumet obsahuje DTD alebo je nan odkaz v deklarácií typu dokumentu, parser kontroluje, čo odpovedá DTD. Pokial áno, hovoríme, že dokument je VALIDNÝ</li>
+			</ul>
+		</p>
+		]]>
+		</obsah>
+		<info/>
+	</zaznam>
+	
+</poznamky>
